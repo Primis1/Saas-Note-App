@@ -21,4 +21,15 @@ model User {
   email     String   @unique
   name      String?
   role      Role     @default(USER)
+  notes     Note[]
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  title     String    @default("Untitled")
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    Int      
+  user      User     @relation(fields: [userId], references: [id])
 }
