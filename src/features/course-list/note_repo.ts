@@ -1,22 +1,23 @@
 import { dbClient } from "@/shared/lib/db";
 import { cache } from "react";
+import type { Note } from "@prisma/client";
 
 class NoteRepo {
   getNoteList = cache(
-    (): Promise<NoteListElement[]> => dbClient.note.findMany()
+    (): Promise<Note[]> => dbClient.note.findMany()
   );
 
   createNoteElement = (
-    command: CreateNoteListElement
-  ): Promise<NoteListElement[]> => {
+    command: Note
+  ): Promise<Note[]> => {
     return dbClient.note.create({
       data: command,
     });
   };
 
   deleteNoteElement = (
-    command: DeleteNoteListElement
-  ): Promise<NoteListElement[]> => {
+    command: Note
+  ): Promise<Note[]> => {
     return dbClient.note.delete({
         where: {id: command.id}
     })
