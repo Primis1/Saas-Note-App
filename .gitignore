@@ -16,6 +16,8 @@
 # production
 /build
 
+/src/feature/courses-list
+
 # misc
 .DS_Store
 *.pem

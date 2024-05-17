@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/features/theme/theme_provider";
+import { ThemeProvider } from "@/feature/theme/theme-provider";
 import Header from "@/widgets/ui/header";
-import { dbClient } from "@/shared/lib/db";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +16,6 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>
 ) {
 
-  const bla = dbClient.note.findMany();
-
-
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -28,7 +24,7 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        >  
+        >   
           <Header />
           {children}
         </ThemeProvider>

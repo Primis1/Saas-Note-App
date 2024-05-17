@@ -22,7 +22,6 @@ model User {
   email     String   @unique
   name      String?
   role      Role     @default(USER)
-  notes     Note[]
 }
 
 model Note {
@@ -32,5 +31,10 @@ model Note {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId    Int      
-  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Course {
+  id String @id @default(cuid())
+  name String
+  description String
 }
