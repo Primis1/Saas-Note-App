@@ -28,7 +28,7 @@ export default function Header() {
   // }, []);
 
   return (
-    <header className="fixed w-screen ">
+    <header className="fixed w-screen">
       <nav className="container">
         <div className="py-3">
           <div className="flex items-center justify-between">

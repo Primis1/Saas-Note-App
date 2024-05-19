@@ -24,7 +24,7 @@ export default async function Home() {
             </div>
 
             <div className="flex justify-center max-w-sm mx-auto mt-10">
-              <Link href={'note-id'}>
+              <Link href={'/note-take'}>
                 <Button>Write Your Note</Button>
               </Link>
             </div>

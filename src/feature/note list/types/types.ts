@@ -1,14 +1,11 @@
 type NoteElement = {
     id: string;
     title: string;
-    text: string;
-    date: Date;
-}
+    text: string;}
 
 type CreateNoteElement = {
     title: string;
     text: string;
-    date: Date;
 }
 
 type DeleteNoteElement = {

@@ -25,12 +25,9 @@ model User {
 }
 
 model Note {
-  id        Int      @id @default(autoincrement())
+  id String @id @default(cuid())
   title     String    @default("Untitled")
   text      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  userId    Int      
 }
 
 model Course {

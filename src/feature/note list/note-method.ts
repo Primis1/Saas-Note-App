@@ -11,8 +11,17 @@ class NoteMethods {
   };
 
   deleteNote = (command: DeleteNoteElement)=> {
-    return dbClient.note.delete({where: command.id})
+    return dbClient.note.delete({where: {id: command.id}})
+  }
+  
+  getSpecificNote = ({id}: {id: string}) => {
+    return dbClient.note.findUnique({ where: { id: id },
+    select: {
+      title: true,
+      text: true
+    }
+    });
   }
 }
 
-export const noteMethods = new NoteMethods()
+export const noteMethods = new NoteMethods() 
