@@ -8,5 +8,15 @@ export const createNoteAction = async (
   revalidatePagePath: string
 ) => {
   await noteMethods.createNote(command);
-  revalidatePath(revalidatePagePath)
+  revalidatePath(revalidatePagePath);
+};
+
+export const updateNoteAction = async (
+  id: string,
+  title: string,
+  text: string, 
+  revalidatePagePath: string
+) => {
+  await noteMethods.updateNote(id, title, text);
+  revalidatePath(revalidatePagePath);
 };

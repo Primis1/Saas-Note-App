@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "@/shared/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/shared/ui/form";
 import { FileTextIcon } from "@radix-ui/react-icons";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -13,27 +8,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { createNoteAction } from "../action";
 import { Button } from "@/shared/ui/button";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 
-const createNoteSchema = z.object({
+export const noteSchema = z.object({
   title: z.string(),
   text: z.string(),
 });
 
 export default function CreateNote({
   revalidatePagePath,
-  redirectToNewNote
+  redirectToNewNote,
 }: {
   revalidatePagePath: string;
-  redirectToNewNote: string
+  redirectToNewNote: string;
 }) {
   const [isCreateTransiton, startCreateTransition] = useTransition();
 
   const form = useForm({
-    resolver: zodResolver(createNoteSchema),
+    resolver: zodResolver(noteSchema),
     defaultValues: {
       title: "untitled",
-      text: "bla bla bla",
+      text: "",
     },
   });
 
@@ -43,9 +38,8 @@ export default function CreateNote({
         onSubmit={form.handleSubmit((data) => {
           startCreateTransition(async () => {
             await createNoteAction(data, revalidatePagePath);
-          })
-          redirect(redirectToNewNote)          
-          ;
+          });
+          redirect(redirectToNewNote);
         })}
       >
         <FormField
