@@ -14,12 +14,6 @@ export default async function getAndDisplayNote(params: any) {
       
       <div className="w-[90vh] flex flex-col">
         <div className="mt-[6rem] h-20">
-          <Input
-            className="outline-none w-full bg-red"
-            required
-            defaultValue={note?.title}
-          />
-
           <TextUpdate revalidatePagePath={`/note-take/${id}`} id={id} InitialTitle={note?.title} initialText={note?.text} />
         </div>
       </div>

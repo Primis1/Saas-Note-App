@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { createNoteAction } from "../action";
 import { Button } from "@/shared/ui/button";
-import { redirect } from "next/navigation";
+import { useRouter } from 'next/navigation'
 
 export const noteSchema = z.object({
   title: z.string(),
@@ -32,6 +32,9 @@ export default function CreateNote({
     },
   });
 
+  const router = useRouter()
+
+
   return (
     <Form {...form}>
       <form
@@ -39,7 +42,7 @@ export default function CreateNote({
           startCreateTransition(async () => {
             await createNoteAction(data, revalidatePagePath);
           });
-          redirect(redirectToNewNote);
+          router.push(redirectToNewNote);
         })}
       >
         <FormField

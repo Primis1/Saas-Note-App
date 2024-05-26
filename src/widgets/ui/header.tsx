@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { Button } from "@/shared/ui/button";
 import {
@@ -9,8 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui/dropdown-menu";
 import Image from "next/image";
-import { cn } from "@/shared/lib/utils";
-import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/feature/theme/theme-toggler";
 // import { ModeToggle } from "@/features/theme/theme-toggler";
 
@@ -70,7 +67,17 @@ export default function Header() {
                       //   })
                       // }
                       >
-                        Sign Out
+                        <Link href={"/sign-up"}>Sign Up</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
+                      // onClick={() =>
+                      //   signOut({
+                      //     callbackUrl: `${window.location.origin}`,
+                      //   })
+                      // }
+                      >
+                        <Link href={"/log-In"}>Log In</Link>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>

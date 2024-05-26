@@ -33,17 +33,19 @@ export default function TextUpdate({
 
   const [isPending, startTransition] = useTransition();
 
-  const [propsTitle, setpropsTitle] = useState(InitialTitle);
+  const [propsTitle, setpropsTitle] = useState("");
 
   const [propsText, setPropsText] = useState(initialText);
 
-  const handleTextChange = () => {
-    setPropsText("event.target.value");
+  const handleTextChange = (event: any) => {
+    setPropsText(event.target.value);
   };
 
-  // const handleInputChange = (event: any) => {
-  //   setpropsTitle(event.target.value);
-  // };
+  const handleInputChange = (event: any) => {
+    setpropsTitle(event.target.value);
+  };
+
+  console.log(propsTitle)
 
   return (
     <Form {...form}>
@@ -67,24 +69,10 @@ export default function TextUpdate({
             <FormItem>
               <FormControl>
                 <Input
-                  onBlur={handleInputChange}
-                  value={propsTitle}
+                  onChange={handleInputChange}
+                  value={InitialTitle}
+                  required
                   className="outline-none w-full bg-red"
-                  {...field}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="text"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Textarea
-                  onBlur={handleTextChange}
-                  value={propsText}
                   {...field}
                 />
               </FormControl>

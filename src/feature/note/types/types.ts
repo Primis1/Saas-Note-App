@@ -4,11 +4,6 @@ type NoteElement = {
   text: string;
 };
 
-type TextElement = {
-  id: string;
-  text: string;
-};
-
 type CreateNoteElement = {
   title: string;
   text: string;
@@ -18,8 +13,7 @@ type DeleteNoteElement = {
   id: string;
 };
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
+interface ProviderBtn {
+  providerName: string;
+  providerIcon: JSX.Element;
+}

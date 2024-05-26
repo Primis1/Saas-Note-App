@@ -1,4 +1,4 @@
-import { dbClient } from "@/shared/lib/db";
+import { dbClient } from "@/shared/lib/_db";
 import { cache } from "react";
 
 class NoteMethods {

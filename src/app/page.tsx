@@ -1,8 +1,10 @@
 import { Button } from "@/shared/ui/button";
+import Header from "@/widgets/ui/header";
 import Link from "next/link";
 
 export default async function Home() {
-  return (
+  return (<>
+    <Header />
     <div className="container">
       <section className="flex items-center justify-center bg-background h-[90vh]">
         <div className="relative items-center w-full px-5 py-12 mx-auto lg:px-16 max-w-7xl md:px-12">
@@ -32,5 +34,6 @@ export default async function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }
